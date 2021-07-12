@@ -65,6 +65,18 @@
     
     div {
         display: block;
+        background-color: rgb(248, 162, 82);
+    }
+    
+    #btn {
+        position: fixed;
+        padding: 7px;
+        font-weight: bold;
+        background-color: rgb(248, 162, 82);
+        color: white;
+        border: 1px solid;
+        margin-top: 128px;
+        width: 15%;
     }
     
     form {
