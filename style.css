@@ -58,6 +58,13 @@
         box-sizing: border-box;
     }
     
+    #insertButton {
+        width: 15%;
+        background-color: rgb(248, 162, 82);
+        height: 30px;
+        ;
+    }
+    
     * {
         margin: 0;
         padding: 0;
