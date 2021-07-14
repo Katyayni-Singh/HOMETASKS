@@ -1,69 +1,44 @@
 document.getElementById("insertButton").addEventListener('click', function() {
 
-
-    var firstDiv = document.getElementById("div1");
+    let firstDiv = document.getElementById("div1");
     console.log(firstDiv);
     firstDiv.insertAdjacentHTML('afterend', '<div class="insertDiv">Div 2</div>');
-
     let button = document.getElementById("insertButton");
-    button.parentNode.removeChild(button);
+
 });
 
+function generateDynamicDivs() {
 
-
-function generate() {
-
-    var x = document.getElementById('row').value;
-    var y = document.getElementById('col').value;
-
-    tableCreate(x, y);
+    let row = document.getElementById('row').value;
+    let col = document.getElementById('col').value;
+    createTable(row, col);
     return false;
 
 }
 
-function tableCreate(x, y) {
+function createTable(row, col) {
 
     let tableDiv = document.getElementById('tableDiv');
-
-
     tbl = document.createElement('table');
 
-    let margin = 0;
-    if (y == 1)
-        margin = 45;
-    else if (y == 2)
-        margin = 38;
-    else if (y == 3)
-        margin = 35;
-    else if (y == 4)
-        margin = 30;
-    else if (y == 5)
-        margin = 25;
-    else
-        margin = 10;
+    let margin = 25;
 
     tbl.style.width = '400px';
-
     tbl.style.marginLeft = margin + '%';
     tbl.style.height = '300px';
 
 
+    let divIndex = 1;
+    for (let i = 0; i < row; i++) {
+        let tr = tbl.insertRow();
+        for (let j = 0; j < col; j++) {
 
-    let index = 1;
-    for (var i = 0; i < x; i++) {
-        var tr = tbl.insertRow();
-        for (var j = 0; j < y; j++) {
-
-            var td = tr.insertCell();
+            let td = tr.insertCell();
             divChild = document.createElement('div');
             divChild.className = 'child';
 
-            divChild.id = index++;
+            divChild.id = divIndex++;
             td.appendChild(divChild);
-
-
-
-
         }
     }
 
@@ -76,30 +51,18 @@ function changeColor() {
     let rowId = document.getElementById('rowID').value;
     let colId = document.getElementById('colID').value;
 
-    var x = document.getElementById('row').value;
-    var y = document.getElementById('col').value;
+    var row = document.getElementById('row').value;
+    var col = document.getElementById('col').value;
 
-    if (rowId > x || rowId < 0 || colId > y || colId < 0) {
-
-        document.getElementById('ValidationMessage').style.display = 'block';
-        setTimeout(() => {
-            document.getElementById('ValidationMessage').style.display = 'none';
-        }, 2500)
-
-        return false;
-
-
+    if (rowId > row || rowId < 0 || colId > col || colId < 0) {
+        window.alert("You entered an invalid row and column number");
     }
-
-
-
 
     let color = document.getElementById('colorName').value;
 
+    let divIndex = col * (Number(rowId) - 1) + Number(colId);
 
-    let index = y * (Number(rowId) - 1) + Number(colId);
-
-    document.getElementById(index).style.backgroundColor = color;
+    document.getElementById(divIndex).style.backgroundColor = color;
 
     return false;
 
