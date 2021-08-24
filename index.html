@@ -1,61 +1,29 @@
+<!DOCTYPE html lang="en"   >
+
 <html>
 
 <head>
-    <title>
-        Dynamically Created Divs
-    </title>
-    <link rel='stylesheet' href="style.css">
-    <h2> DYNAMIC DIVS</h2>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Youtube </title>
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
 <body>
-    <div>
-        <div class="insertDiv" id="div1">Div 1</div>
+    <div class="page">
+        <div class="logo">
+            <img class="ytlogo" src="ytlogo.png" height=50px; width=50px>
+            <p class="header"> YouTube </p>
+        </div>
 
-        <div>Div 3</div>
-        <input id="insertButton" type="submit" value="Insert Division">
+        <div id='searchBox'></div>
     </div>
-    <div class="formContainer">
-        <form onsubmit="return generateDynamicDivs ()">
-            <h3>Create Cells</h3>
-            <div class="form-group">
-                <label for="row">Enter Desired Number of Rows:</label>
-                <input type="number" class="form-control" id="row" placeholder="Enter rows" required="">
-            </div>
-            <div class="form-group">
-                <label for="col">Enter Desired Number of Columns: </label>
-                <input type="number" class="form-control" id="col" placeholder="Enter column" required="">
-            </div>
+<div class="videoListContainer" id="videos"></div>
 
+<div class="footer" id="pagination"></div>
+</div>
 
-            <button type="submit" class="btn btn-success"> Create </button>
-        </form>
-
-        <form onsubmit="return changeColor()">
-
-            <h3>Change Color</h3>
-            <div class="form-group">
-                <label for="rowID">Enter row index </label>
-                <input type="number" class="form-control" id="rowID" placeholder="Enter row no..." required="">
-
-                <label for="colID">Enter column index </label>
-                <input type="number" class="form-control" id="colID" placeholder="Enter column no..." required="">
-            </div>
-
-            <div class="form-group">
-                <label for="updateColorName">Enter color name || Hex Code</label>
-                <input type="text" class="form-control" id="colorName" placeholder="Enter color " required="">
-            </div>
-
-            <button type="submit" class="btn btn-danger">Change Color</button>
-        </form>
-
-    </div>
-
-    <div id="tableDiv">
-    </div>
-
-    <script src="./dynamic_div.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
